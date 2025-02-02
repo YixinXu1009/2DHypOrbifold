@@ -1,5 +1,5 @@
 # 2DHypOrbifold
-A Mathematica package to compute the geodesic spectrum and operator spectrum of two-dimensional compact hyperbolic orbifolds.
+A Mathematica package to compute geodesic spectrum and operator spectrum of two-dimensional compact hyperbolic orbifolds.
 ## Enumerate geodesics
 Clone the current repository:
 ```bash
