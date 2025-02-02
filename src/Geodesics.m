@@ -19,7 +19,6 @@ Import["HyperbolicGeometry.m"]
 
 getAllCloseTiles[sidepairings_List,basepoint_,spineRadius_?NumericQ,lengthCutoff_, precision_:500,epsilon_:0.01,lowPrec_:100]:=
 	Module[{distanceToBaseCutoff,closeTiles,front,new},
-           Print["getAllCloseTiles:The precision of the input is:",Precision[sidepairings]];
 		distanceToBaseCutoff = 2 ArcCosh[Cosh[spineRadius]Cosh[lengthCutoff/2]];
 		lowPrecisionHash[expr_]:=Hash[SetPrecision[expr,lowPrec]];
 		front = closeTiles = <|lowPrecisionHash[IdentityMatrix[2]]->SetPrecision[IdentityMatrix[2],precision]|>;
@@ -74,7 +73,6 @@ geolist[[toChange]][[4]]=geolist[[toChange]][[4]]-If[EvenQ[windingNumber],multip
 
 geodesicsBelowCutoffOrbifold[tiles_,basepoint_,spineRadius_,lengthCutoff_,precision_:500,epsilon_:0.01,lowPrec_:100]:=
 	Module[{conjugacyMatrices,hyperbolic,ordered,geolength,test,classes,multiplicity,signedmultiplicity,geolist,distanceToBaseCutoffConj,signedMultiplicity},
-        Print["geodesicsBelowCutoffOrbifold:the precision of the input tiles is:",Precision[tiles[[1]]]];
 		distanceToBaseCutoffConj = 2 ArcCosh[Cosh[spineRadius]Cosh[lengthCutoff/4]];
 		conjugacyMatrices = Select[tiles,distanceToBase[#,basepoint]<distanceToBaseCutoffConj&];
 		hyperbolic = Select[tiles,Abs[Tr[#]]>2 && geodesicLength[#]<=lengthCutoff && axisDistanceToBase[#,basepoint]<spineRadius+ epsilon*spineRadius&];
@@ -110,7 +108,7 @@ enumerateGeodesics[orbifold_,lengthCutoff_,outputDir_:None,precision_:500,epsilo
 		tiles = getAllCloseTiles[sidepairings,basepoint,spineRadius,lengthCutoff, precision,epsilon,lowPrec];
 		Print["Counting conjugacy classes....."];
 		geodesicList = geodesicsBelowCutoffOrbifold[tiles,basepoint,spineRadius,lengthCutoff,precision,epsilon,lowPrec];
-		assoList=<|"Length"->#[[1]],"WindingNumer"->#[[2]],"Multiplicity"->#[[3]],"SignedMultiplicity"->#[[4]]|>&/@geodesicList;
+		assoList=<|"Length"->#[[1]],"WindingNumber"->#[[2]],"Multiplicity"->#[[3]],"SignedMultiplicity"->#[[4]]|>&/@geodesicList;
 		Export[FileNameJoin[{dirName,fileName}],assoList];
            Print["Done! Data saved in "<>FileNameJoin[{dirName,fileName}]];
 		Return[]]
