@@ -1,9 +1,10 @@
-(* ::Package:: *)
+: ::Package:: *)
 
 BeginPackage["OrbifoldData`"]
 
 
 dirichletDomain::usage = "Gives side-pairing generators,base points and spine radius of various orbifolds"
+HyperbolicTriangle::usage =" "
 
 
 Begin["`Private`"]
