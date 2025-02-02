@@ -38,6 +38,6 @@ The general schema for calling `enumerateGeodesics` is:
 Using Selberg trace formula, one can convert the geodesic length spectrum into eigenspectrum of various differential operators. I haven't cleaned up the code for this part yet but you can find an example notebook in the notebook directory.
 
 ## Comments:
-* For a description of the algorithm, see section 4 of [this paper]{https://jamathr.org/index.php/jamr/article/view/Vol-3Issue-1Paper-3/Vol-3Issue-1Paper-3} and reference therein. A separate report might be posted on arXiv.
+* For a description of the algorithm, see section 4 of [this paper]{https://jamathr.org/index.php/jamr/article/view/Vol-3Issue-1Paper-3} and reference therein. A separate report might be posted on arXiv.
 * If you find a bug or need the program to do better (right now it is not very optimized) please contact me. 
 
