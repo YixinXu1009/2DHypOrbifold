@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["Geodesics`"]
+ BeginPackage["Geodesics`",{"OrbifoldData`","HyperbolicGeometry`"}]
 
 
 enumerateGeodesics::usage=
@@ -13,8 +13,8 @@ geodesicsBelowCutoffOrbifold::usage=" "
 Begin["`Private`"]
 
 
-Import["OrbifoldData.m"]
-Import["HyperbolicGeometry.m"]
+(*Get["OrbifoldData.m"]*)
+(*Get["HyperbolicGeometry.m"]*)
 
 
 getAllCloseTiles[sidepairings_List,basepoint_,spineRadius_?NumericQ,lengthCutoff_, precision_:500,epsilon_:0.01,lowPrec_:100]:=
